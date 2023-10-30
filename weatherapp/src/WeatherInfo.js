@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
 const port = 3001; // 원하는 포트로 설정
+const currentTime = new Date();
+const options = {hour: '2-digit', minute: '2-digit', second: '2-digit'};
+
+const formattedTime = `${currentTime.toLocaleTimeString('kr-KR', options)}`;
+
+console.log(formattedTime);
 
 // 미들웨어 설정 (CORS 처리 등)
 app.use(express.json());
