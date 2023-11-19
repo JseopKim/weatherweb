@@ -10,8 +10,8 @@ function CurrentWeather() {
       .then((response) => response.json())
       .then((data) => {
         // API로부터 받은 데이터를 상태로 설정
-        // setWeatherData(data);
-        console.log(data);
+        setWeatherData(data);
+        console.log("Data from server:", data);
       })
       .catch((error) => {
         console.error(error);
@@ -22,6 +22,9 @@ function CurrentWeather() {
   return (
     <div className='Current'>
       <h1>Hello from MyComponent</h1>
+      {weatherData && (
+        <pre>{JSON.stringify(weatherData, null, 2)}</pre>
+      )}
     </div>
   );
 }

@@ -28,9 +28,10 @@ app.get('/api/weather', (req, res) => {
       // API 응답 데이터를 클라이언트에게 반환합니다.
       weatherData = data.response.body.items.item;
       temeperatureObject = weatherData.filter((kind) => kind.category === 'T1H');
-      res.json(data);
+      // res.json(data);
+      res.json({ weatherData, temeperatureObject });
 
-      console.log(temeperatureObject);
+      // console.log(temeperatureObject);
       // console.log(fullDate);
     })
     .catch((error) => {
